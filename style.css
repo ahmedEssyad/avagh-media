@@ -128,6 +128,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .nav__logo {
@@ -197,6 +198,73 @@ body {
     font-size: 1.25rem;
     color: var(--color-dark);
     cursor: pointer;
+}
+
+/* LANGUAGE SELECTOR */
+.language-selector {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    position: absolute;
+    right: 100px;
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.5rem 0.75rem;
+    background: transparent;
+    border: 1px solid var(--color-gray);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-dark);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+}
+
+.flag-icon {
+    width: 16px;
+    height: 12px;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.flag-fr-small {
+    background: linear-gradient(to right, #0052cc 33%, #fff 33%, #fff 66%, #e74c3c 66%);
+}
+
+.flag-en-small {
+    background: linear-gradient(45deg, #012169 25%, transparent 25%), 
+                linear-gradient(-45deg, #012169 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #012169 75%), 
+                linear-gradient(-45deg, transparent 75%, #012169 75%);
+    background-size: 8px 8px;
+    background-position: 0 0, 0 4px, 4px -4px, -4px 0px;
+    position: relative;
+}
+
+.flag-en-small::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 40%, #e74c3c 40%, #e74c3c 60%, transparent 60%),
+                linear-gradient(to right, transparent 40%, #e74c3c 40%, #e74c3c 60%, transparent 60%);
+}
+
+.flag-ar-small {
+    background: linear-gradient(to bottom, #000 33%, #fff 33%, #fff 66%, #e74c3c 66%);
 }
 
 /* HERO SECTION */
@@ -672,6 +740,7 @@ body {
 .form__input {
     width: 100%;
     padding: 1rem;
+    padding-top: 1.5rem;
     border: 2px solid transparent;
     border-radius: var(--border-radius);
     background: var(--color-white);
@@ -689,22 +758,30 @@ body {
 .form__textarea {
     min-height: 120px;
     resize: vertical;
+    padding-top: 2rem;
 }
 
 .form__label {
     position: absolute;
-    top: 1rem;
+    top: 0.5rem;
     left: 1rem;
-    color: var(--color-gray);
-    font-size: var(--font-size-sm);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 500;
     pointer-events: none;
     transition: var(--transition);
+    background: var(--color-white);
+    padding: 0 0.25rem;
 }
 
-.form__input:focus + .form__label,
-.form__input:not(:placeholder-shown) + .form__label {
-    transform: translateY(-2.5rem) scale(0.85);
+.form__input:focus + .form__label {
     color: var(--color-primary);
+}
+
+.form__input:placeholder-shown + .form__label {
+    top: 1rem;
+    font-size: var(--font-size-sm);
+    color: var(--color-gray);
 }
 
 .form__button {
@@ -805,6 +882,12 @@ body {
         display: block;
     }
     
+    .language-selector {
+        position: static;
+        margin-top: 1rem;
+        justify-content: center;
+    }
+    
     .services__container {
         grid-template-columns: 1fr;
     }
@@ -886,5 +969,61 @@ body {
     .language__badge {
         min-width: 120px;
         padding: 1.5rem;
+    }
+}
+
+/* RTL STYLES FOR ARABIC */
+[dir="rtl"] {
+    text-align: right;
+}
+
+[dir="rtl"] .nav__list {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .language-selector {
+    right: auto;
+    left: 100px;
+}
+
+[dir="rtl"] .services__list li::before {
+    content: "◀";
+    right: 0;
+    left: auto;
+}
+
+[dir="rtl"] .services__list li {
+    padding-right: 1.5rem;
+    padding-left: 0;
+    text-align: right;
+}
+
+[dir="rtl"] .production__item {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .contact__item {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+[dir="rtl"] .form__label {
+    right: 1rem;
+    left: auto;
+}
+
+[dir="rtl"] .footer__content {
+    flex-direction: row-reverse;
+}
+
+@media screen and (max-width: 968px) {
+    [dir="rtl"] .language-selector {
+        position: static;
+    }
+    
+    .language-selector {
+        position: static;
+        margin-top: 1rem;
+        justify-content: center;
     }
 }

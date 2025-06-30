@@ -25,19 +25,31 @@
                 <img src="imajes/logo.png" alt="AVAGH Media Logo" class="logo-img">
             </div>
             
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="fr">
+                    <span class="flag-icon flag-fr-small"></span> FR
+                </button>
+                <button class="lang-btn" data-lang="en">
+                    <span class="flag-icon flag-en-small"></span> EN
+                </button>
+                <button class="lang-btn" data-lang="ar">
+                    <span class="flag-icon flag-ar-small"></span> AR
+                </button>
+            </div>
+            
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="#home" class="nav__link active-link">Accueil</a>
+                        <a href="#home" class="nav__link active-link" data-translate="nav.home">Accueil</a>
                     </li>
                     <li class="nav__item">
-                        <a href="#services" class="nav__link">Services</a>
+                        <a href="#services" class="nav__link" data-translate="nav.services">Services</a>
                     </li>
                     <li class="nav__item">
-                        <a href="#about" class="nav__link">À Propos</a>
+                        <a href="#about" class="nav__link" data-translate="nav.about">À Propos</a>
                     </li>
                     <li class="nav__item">
-                        <a href="#contact" class="nav__link">Contact</a>
+                        <a href="#contact" class="nav__link" data-translate="nav.contact">Contact</a>
                     </li>
                 </ul>
                 <div class="nav__close" id="nav-close">
@@ -66,14 +78,14 @@
             <div class="hero__container container grid">
                 <div class="hero__content">
                     <h1 class="hero__title">
-                        AVAGH MEDIA
-                        <span class="hero__subtitle">Votre Partenaire Médiatique</span>
+                        <span data-translate="hero.title">AVAGH MEDIA</span>
+                        <span class="hero__subtitle" data-translate="hero.subtitle">Votre Partenaire Médiatique</span>
                     </h1>
-                    <p class="hero__description">
+                    <p class="hero__description" data-translate="hero.description">
                         Solutions créatives et professionnelles pour tous vos besoins médiatiques
                     </p>
                     <a href="#services" class="hero__button button">
-                        Découvrir nos services
+                        <span data-translate="hero.button">Découvrir nos services</span>
                         <i class="fas fa-arrow-right button__icon"></i>
                     </a>
                 </div>
@@ -84,7 +96,7 @@
         <section class="services section" id="services">
             <div class="container">
                 <div class="section__header">
-                    <h2 class="section__title">NOS SERVICES</h2>
+                    <h2 class="section__title" data-translate="services.title">NOS SERVICES</h2>
                     <div class="section__line"></div>
                 </div>
                 
@@ -168,7 +180,7 @@
         <section class="production section">
             <div class="container">
                 <div class="section__header">
-                    <h2 class="section__title">PRODUCTION ET MÉDIAS</h2>
+                    <h2 class="section__title" data-translate="production.title">PRODUCTION ET MÉDIAS</h2>
                     <div class="section__line"></div>
                 </div>
                 
@@ -212,7 +224,7 @@
         <section class="languages section">
             <div class="container">
                 <div class="section__header">
-                    <h2 class="section__title">LANGUES DE TRAVAIL</h2>
+                    <h2 class="section__title" data-translate="languages.title">LANGUES DE TRAVAIL</h2>
                     <div class="section__line"></div>
                 </div>
                 
@@ -240,7 +252,7 @@
         <section class="about section" id="about">
             <div class="container">
                 <div class="section__header">
-                    <h2 class="section__title">QUI SOMMES-NOUS ?</h2>
+                    <h2 class="section__title" data-translate="about.title">QUI SOMMES-NOUS ?</h2>
                     <div class="section__line"></div>
                 </div>
                 
@@ -275,7 +287,7 @@
         <section class="contact section" id="contact">
             <div class="container">
                 <div class="section__header">
-                    <h2 class="section__title">CONTACTEZ-NOUS</h2>
+                    <h2 class="section__title" data-translate="contact.title">CONTACTEZ-NOUS</h2>
                     <div class="section__line"></div>
                 </div>
                 
@@ -313,22 +325,22 @@
                     
                     <form class="contact__form" id="contact-form">
                         <div class="form__group">
-                            <input type="text" class="form__input" placeholder="Votre nom" required>
-                            <label class="form__label">Nom complet</label>
+                            <input type="text" class="form__input" id="name-input" required>
+                            <label class="form__label" for="name-input" data-translate="form.name">Nom complet</label>
                         </div>
                         <div class="form__group">
-                            <input type="email" class="form__input" placeholder="Votre email" required>
-                            <label class="form__label">Adresse email</label>
+                            <input type="email" class="form__input" id="email-input" required>
+                            <label class="form__label" for="email-input" data-translate="form.email">Adresse email</label>
                         </div>
                         <div class="form__group">
-                            <input type="text" class="form__input" placeholder="Sujet du message">
-                            <label class="form__label">Sujet</label>
+                            <input type="text" class="form__input" id="subject-input">
+                            <label class="form__label" for="subject-input" data-translate="form.subject">Sujet</label>
                         </div>
                         <div class="form__group">
-                            <textarea class="form__input form__textarea" placeholder="Votre message" required></textarea>
-                            <label class="form__label">Message</label>
+                            <textarea class="form__input form__textarea" id="message-input" required></textarea>
+                            <label class="form__label" for="message-input" data-translate="form.message">Message</label>
                         </div>
-                        <button type="submit" class="button form__button">
+                        <button type="submit" class="button form__button" data-translate="form.submit">
                             Envoyer le message
                             <i class="fas fa-paper-plane button__icon"></i>
                         </button>
@@ -366,6 +378,7 @@
         </div>
     </footer>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

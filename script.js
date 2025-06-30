@@ -379,4 +379,64 @@ serviceCards2.forEach(card => {
     });
 });
 
+// LANGUAGE SYSTEM
+let currentLanguage = 'fr';
+
+// Language switcher functionality
+const languageButtons = document.querySelectorAll('.lang-btn');
+const elementsToTranslate = document.querySelectorAll('[data-translate]');
+
+function changeLanguage(lang) {
+    currentLanguage = lang;
+    
+    // Update active button
+    languageButtons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Update text content
+    elementsToTranslate.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+            if (element.innerHTML.includes('<')) {
+                element.innerHTML = translations[lang][key];
+            } else {
+                element.textContent = translations[lang][key];
+            }
+        }
+    });
+    
+    // Update document direction for Arabic
+    if (lang === 'ar') {
+        document.documentElement.dir = 'rtl';
+        document.documentElement.lang = 'ar';
+    } else {
+        document.documentElement.dir = 'ltr';
+        document.documentElement.lang = lang;
+    }
+    
+    // Save language preference
+    localStorage.setItem('preferred-language', lang);
+}
+
+// Initialize language system
+function initLanguage() {
+    const savedLang = localStorage.getItem('preferred-language') || 'fr';
+    changeLanguage(savedLang);
+}
+
+// Add event listeners to language buttons
+languageButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const lang = button.dataset.lang;
+        changeLanguage(lang);
+    });
+});
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', initLanguage);
+
 console.log('AVAGH Media website loaded successfully! 🚀');
