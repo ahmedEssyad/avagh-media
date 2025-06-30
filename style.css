@@ -139,24 +139,17 @@ body {
     color: var(--color-dark);
 }
 
-.logo-icon {
-    width: 32px;
-    height: 32px;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    position: relative;
+.logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
 }
 
-.logo-icon::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 12px;
-    height: 12px;
-    background: var(--color-dark);
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+.footer-logo-img {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
 }
 
 .logo-media {
@@ -212,7 +205,6 @@ body {
     display: flex;
     align-items: center;
     position: relative;
-    background: linear-gradient(135deg, var(--color-white) 0%, var(--color-light) 100%);
     overflow: hidden;
 }
 
@@ -225,16 +217,43 @@ body {
     z-index: -1;
 }
 
+.hero__cover-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('imajes/couveture.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(44, 62, 80, 0.7) 0%, 
+        rgba(231, 76, 60, 0.6) 50%, 
+        rgba(44, 62, 80, 0.8) 100%);
+    z-index: 2;
+}
+
 .hero__decoration {
     position: relative;
     width: 100%;
     height: 100%;
+    z-index: 3;
 }
 
 .hero__icon {
     position: absolute;
     font-size: 3rem;
-    color: rgba(231, 76, 60, 0.1);
+    color: rgba(255, 255, 255, 0.1);
     animation: float 6s ease-in-out infinite;
 }
 
@@ -262,7 +281,8 @@ body {
 }
 
 .hero__container {
-    z-index: 1;
+    z-index: 4;
+    position: relative;
 }
 
 .hero__content {
@@ -274,26 +294,29 @@ body {
 .hero__title {
     font-size: var(--font-size-xxl);
     font-weight: 800;
-    color: var(--color-dark);
+    color: var(--color-white);
     margin-bottom: 1rem;
     line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero__subtitle {
     display: block;
     font-size: var(--font-size-lg);
-    color: var(--color-primary);
+    color: var(--color-white);
     font-weight: 600;
     margin-top: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 .hero__description {
     font-size: var(--font-size-md);
-    color: var(--color-dark-alt);
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 2.5rem;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .hero__button {
