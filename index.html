@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AVAGH Media - Solutions Créatives et Professionnelles</title>
     <meta name="description" content="AVAGH Media - Société mauritanienne de production médiatique offrant des solutions créatives et professionnelles">
-    <link rel="stylesheet" href="style.css">
+    
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="imajes/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="imajes/favicon-32x32.png">
@@ -16,6 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Header -->
@@ -23,18 +24,6 @@
         <nav class="nav container">
             <div class="nav__logo">
                 <img src="imajes/logo.png" alt="AVAGH Media Logo" class="logo-img">
-            </div>
-            
-            <div class="language-selector">
-                <button class="lang-btn active" data-lang="fr">
-                    <span class="flag-icon flag-fr-small"></span> FR
-                </button>
-                <button class="lang-btn" data-lang="en">
-                    <span class="flag-icon flag-en-small"></span> EN
-                </button>
-                <button class="lang-btn" data-lang="ar">
-                    <span class="flag-icon flag-ar-small"></span> AR
-                </button>
             </div>
             
             <div class="nav__menu" id="nav-menu">
@@ -52,9 +41,34 @@
                         <a href="#contact" class="nav__link" data-translate="nav.contact">Contact</a>
                     </li>
                 </ul>
+                
+                <div class="language-selector language-selector--mobile">
+                    <button class="lang-btn active" data-lang="fr">
+                        <span class="flag-icon flag-fr-small"></span> FR
+                    </button>
+                    <button class="lang-btn" data-lang="en">
+                        <span class="flag-icon flag-en-small"></span> EN
+                    </button>
+                    <button class="lang-btn" data-lang="ar">
+                        <span class="flag-icon flag-ar-small"></span> AR
+                    </button>
+                </div>
+                
                 <div class="nav__close" id="nav-close">
                     <i class="fas fa-times"></i>
                 </div>
+            </div>
+            
+            <div class="language-selector language-selector--desktop">
+                <button class="lang-btn active" data-lang="fr">
+                    <span class="flag-icon flag-fr-small"></span> FR
+                </button>
+                <button class="lang-btn" data-lang="en">
+                    <span class="flag-icon flag-en-small"></span> EN
+                </button>
+                <button class="lang-btn" data-lang="ar">
+                    <span class="flag-icon flag-ar-small"></span> AR
+                </button>
             </div>
             
             <div class="nav__toggle" id="nav-toggle">

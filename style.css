@@ -201,12 +201,18 @@ body {
 }
 
 /* LANGUAGE SELECTOR */
-.language-selector {
+.language-selector--desktop {
     display: flex;
     gap: 0.5rem;
     align-items: center;
     position: absolute;
-    right: 100px;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.language-selector--mobile {
+    display: none;
 }
 
 .lang-btn {
@@ -882,10 +888,18 @@ body {
         display: block;
     }
     
-    .language-selector {
+    .language-selector--desktop {
+        display: none;
+    }
+    
+    .language-selector--mobile {
+        display: flex;
         position: static;
+        transform: none;
         margin-top: 1rem;
         justify-content: center;
+        padding: 1rem 2rem;
+        border-top: 1px solid var(--color-light);
     }
     
     .services__container {
@@ -981,9 +995,9 @@ body {
     flex-direction: row-reverse;
 }
 
-[dir="rtl"] .language-selector {
+[dir="rtl"] .language-selector--desktop {
     right: auto;
-    left: 100px;
+    left: 60px;
 }
 
 [dir="rtl"] .services__list li::before {
@@ -1021,9 +1035,12 @@ body {
         position: static;
     }
     
-    .language-selector {
+    .nav__menu .language-selector {
+        display: flex;
         position: static;
         margin-top: 1rem;
         justify-content: center;
+        padding: 1rem 2rem;
+        border-top: 1px solid var(--color-light);
     }
 }
